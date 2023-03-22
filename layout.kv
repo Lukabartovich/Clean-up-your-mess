@@ -1,0 +1,164 @@
+<Start>:
+    GridLayout:
+        cols: 1
+
+        padding: 20
+        spacing: 20
+
+        Image:
+            source: 'files/box.png'
+            size_hint_y: 0.9
+
+        Button:
+            text: 'start'
+            background_color: (0.71, 0, 0.49, 1)
+            on_press: root.start(self.text)
+            size_hint_y: 0.1
+
+<Home>:
+    GridLayout:
+        cols: 1
+
+
+        Image:
+            source: 'files/box.png'
+            size_hint_y: 0.88
+        GridLayout:
+
+            spacing: 20
+            padding: 10
+
+            cols: 4
+            size_hint_y: 0.12
+
+            TextInput:
+                id: input
+                size_hint_x: 0.73
+
+            Button:
+                size_hint_x: 0.13
+                background_normal: 'files/glass.png'
+                on_press: root.glass()
+
+            Button:
+                size_hint_x: 0.12
+                background_normal: 'files/boxes2.png'
+
+            Button:
+                id: mic
+                size_hint_x: 0.12
+                background_normal: 'files/plus.png'
+
+<Result>:
+    GridLayout:
+
+        spacing: 20
+        padding: 20
+        cols: 1
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.1
+
+            Label:
+                text: ''
+                size_hint_x: 0.9
+            Button:
+                text: 'back'
+                background_color: (0.71, 0, 0.49, 1)
+                size_hint_x: 0.1
+                on_press: root.back()
+
+        Label:
+            text: ''
+            size_hint_y: 0.4
+
+        GridLayout:
+            cols: 3
+            size_hint_y: 0.1
+
+            Button:
+                id: name
+                size_hint_x: 0.4
+                text: ''
+                background_color: (0.24, 0.77, 0.95, 1)
+
+            Label:
+                size_hint_x: 0.2
+                text: 'is in'
+                color: (0, 0, 0, 1)
+                font_size: 30
+            Button:
+                id: box
+                size_hint_x: 0.4
+                text: ''
+                background_color: (0.24, 0.77, 0.95, 1)
+                on_press: root.boxes(self.text)
+        Label:
+            text: ''
+            size_hint_y: 0.4
+
+<Page>:
+    GridLayout:
+        cols: 1
+
+        spacing: 5
+        padding: 5
+
+        Button:
+            id: b1
+            text: ''
+            background_color: (0.71, 0, 0.49, 1)
+        Button:
+            id: b2
+            text: ''
+            background_color: (0.71, 0, 0.49, 1)
+        Button:
+            id: b3
+            text: ''
+            background_color: (0.71, 0, 0.49, 1)
+        Button:
+            id: b4
+            text: ''
+            background_color: (0.71, 0, 0.49, 1)
+        Button:
+            id: b5
+            text: ''
+            background_color: (0.71, 0, 0.49, 1)
+        GridLayout:
+            cols: 3
+
+            Button:
+                background_color: (0.24, 0.77, 0.95, 1)
+                background_normal: 'files/left1.png'
+                size_hint_x: 0.1525
+                on_press: root.left()
+
+            Button:
+                background_color: (0.24, 0.77, 0.95, 1)
+                text: 'back'
+                size_hint_x: 0.65
+                on_press: root.back()
+
+            Button:
+                background_normal: 'files/right1.png'
+                background_color: (0.24, 0.77, 0.95, 1)
+                size_hint_x: 0.1525
+                on_press: root.right()
+
+<Root>:
+    Start:
+        id: start
+        name: 'start'
+
+    Home:
+        id: home
+        name: 'home'
+
+    Page:
+        id: page
+        name: 'page'
+
+    Result:
+        id: result
+        name: 'result'
