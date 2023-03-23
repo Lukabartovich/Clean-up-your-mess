@@ -31,11 +31,54 @@ class Home(Screen):
                 print(number, name)
 
 
+class Result(Screen):
+    def back(self):
+        self.manager.current = 'home'
+
+    def boxes(self, name):
+        self.box_name = name
+        with open('files/box.txt', 'w+') as file:
+            file.truncate(0)
+            file.write(self.box_name)
+            file.close()
+        db = DataBase()
+        if db.get_for_page(1, self.box_name) == True:
+            self.manager.current = 'page'
+            with open('files/page_number.txt', 'w+') as file2:
+                file2.truncate(0)
+                file2.write(str(1))
+                file2.close()
+
+            self.manager.current_screen.ids.b1.text = \
+                db.get_thing_from_number(1, self.box_name)
+            self.manager.current_screen.ids.b2.text = \
+                db.get_thing_from_number(2, self.box_name)
+            self.manager.current_screen.ids.b3.text = \
+                db.get_thing_from_number(3, self.box_name)
+            self.manager.current_screen.ids.b4.text = \
+                db.get_thing_from_number(4, self.box_name)
+            self.manager.current_screen.ids.b5.text = \
+                db.get_thing_from_number(5, self.box_name)
+
+
 class Page(Screen):
     def back(self):
         with open('files/page_number.txt', 'w+') as file2:
+            self.page_number = file2.read()
             file2.truncate(0)
             file2.write(str(1))
+
+        with open('files/box.txt', 'r+') as file:
+            self.name = file.read()
+            file.truncate(0)
+        if self.page_number == '2':
+            db = DataBase()
+            self.ids.b1.text = db.get_thing_from_number(1, self.name)
+            self.ids.b2.text = db.get_thing_from_number(2, self.name)
+            self.ids.b3.text = db.get_thing_from_number(3, self.name)
+            self.ids.b4.text = db.get_thing_from_number(4, self.name)
+            self.ids.b5.text = db.get_thing_from_number(5, self.name)
+
         self.manager.current = 'home'
         self.manager.current_screen.ids.input.text = ''
 
@@ -126,36 +169,6 @@ class Page(Screen):
                 with open('files/page_number.txt', 'w+') as file2:
                     file2.truncate(0)
                     file2.write(str(4))
-
-
-class Result(Screen):
-    def back(self):
-        self.manager.current = 'home'
-
-    def boxes(self, name):
-        self.box_name = name
-        with open('files/box.txt', 'w+') as file:
-            file.truncate(0)
-            file.write(self.box_name)
-            file.close()
-        db = DataBase()
-        if db.get_for_page(1, self.box_name) == True:
-            self.manager.current = 'page'
-            with open('files/page_number.txt', 'w+') as file2:
-                file2.truncate(0)
-                file2.write(str(1))
-                file2.close()
-
-            self.manager.current_screen.ids.b1.text = \
-                db.get_thing_from_number(1, self.box_name)
-            self.manager.current_screen.ids.b2.text = \
-                db.get_thing_from_number(2, self.box_name)
-            self.manager.current_screen.ids.b3.text = \
-                db.get_thing_from_number(3, self.box_name)
-            self.manager.current_screen.ids.b4.text = \
-                db.get_thing_from_number(4, self.box_name)
-            self.manager.current_screen.ids.b5.text = \
-                db.get_thing_from_number(5, self.box_name)
 
 
 class Object(Screen):
