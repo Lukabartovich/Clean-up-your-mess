@@ -63,21 +63,22 @@ class Result(Screen):
 
 class Page(Screen):
     def back(self):
+        self.ids.name_ = 'page'
         with open('files/page_number.txt', 'w+') as file2:
             self.page_number = file2.read()
             file2.truncate(0)
             file2.write(str(1))
 
         with open('files/box.txt', 'r+') as file:
-            self.name = file.read()
+            self.name_ = file.read()
             file.truncate(0)
         if self.page_number == '2':
             db = DataBase()
-            self.ids.b1.text = db.get_thing_from_number(1, self.name)
-            self.ids.b2.text = db.get_thing_from_number(2, self.name)
-            self.ids.b3.text = db.get_thing_from_number(3, self.name)
-            self.ids.b4.text = db.get_thing_from_number(4, self.name)
-            self.ids.b5.text = db.get_thing_from_number(5, self.name)
+            self.ids.b1.text = db.get_thing_from_number(1, self.name_)
+            self.ids.b2.text = db.get_thing_from_number(2, self.name_)
+            self.ids.b3.text = db.get_thing_from_number(3, self.name_)
+            self.ids.b4.text = db.get_thing_from_number(4, self.name_)
+            self.ids.b5.text = db.get_thing_from_number(5, self.name_)
 
         self.manager.current = 'home'
         self.manager.current_screen.ids.input.text = ''
@@ -87,44 +88,44 @@ class Page(Screen):
             self.page_number = file.read()
 
         with open('files/box.txt', 'r+') as file2:
-            self.name = file2.read()
+            self.name_ = file2.read()
         if self.page_number == '2':
             db = DataBase()
-            self.ids.b1.text = db.get_thing_from_number(1, self.name)
-            self.ids.b2.text = db.get_thing_from_number(2, self.name)
-            self.ids.b3.text = db.get_thing_from_number(3, self.name)
-            self.ids.b4.text = db.get_thing_from_number(4, self.name)
-            self.ids.b5.text = db.get_thing_from_number(5, self.name)
+            self.ids.b1.text = db.get_thing_from_number(1, self.name_)
+            self.ids.b2.text = db.get_thing_from_number(2, self.name_)
+            self.ids.b3.text = db.get_thing_from_number(3, self.name_)
+            self.ids.b4.text = db.get_thing_from_number(4, self.name_)
+            self.ids.b5.text = db.get_thing_from_number(5, self.name_)
             with open('files/page_number.txt', 'w+') as file2:
                 file2.truncate(0)
                 file2.write(str(1))
         if self.page_number == '3':
             db = DataBase()
-            self.ids.b1.text = db.get_thing_from_number(11, self.name)
-            self.ids.b2.text = db.get_thing_from_number(12, self.name)
-            self.ids.b3.text = db.get_thing_from_number(13, self.name)
-            self.ids.b4.text = db.get_thing_from_number(14, self.name)
-            self.ids.b5.text = db.get_thing_from_number(15, self.name)
+            self.ids.b1.text = db.get_thing_from_number(11, self.name_)
+            self.ids.b2.text = db.get_thing_from_number(12, self.name_)
+            self.ids.b3.text = db.get_thing_from_number(13, self.name_)
+            self.ids.b4.text = db.get_thing_from_number(14, self.name_)
+            self.ids.b5.text = db.get_thing_from_number(15, self.name_)
             with open('files/page_number.txt', 'w+') as file2:
                 file2.truncate(0)
                 file2.write(str(2))
         if self.page_number == '3':
             db = DataBase()
-            self.ids.b1.text = db.get_thing_from_number(11, self.name)
-            self.ids.b2.text = db.get_thing_from_number(12, self.name)
-            self.ids.b3.text = db.get_thing_from_number(13, self.name)
-            self.ids.b4.text = db.get_thing_from_number(14, self.name)
-            self.ids.b5.text = db.get_thing_from_number(15, self.name)
+            self.ids.b1.text = db.get_thing_from_number(11, self.name_)
+            self.ids.b2.text = db.get_thing_from_number(12, self.name_)
+            self.ids.b3.text = db.get_thing_from_number(13, self.name_)
+            self.ids.b4.text = db.get_thing_from_number(14, self.name_)
+            self.ids.b5.text = db.get_thing_from_number(15, self.name_)
             with open('files/page_number.txt', 'w+') as file2:
                 file2.truncate(0)
                 file2.write(str(2))
         if self.page_number == '4':
             db = DataBase()
-            self.ids.b1.text = db.get_thing_from_number(11, self.name)
-            self.ids.b2.text = db.get_thing_from_number(12, self.name)
-            self.ids.b3.text = db.get_thing_from_number(13, self.name)
-            self.ids.b4.text = db.get_thing_from_number(14, self.name)
-            self.ids.b5.text = db.get_thing_from_number(15, self.name)
+            self.ids.b1.text = db.get_thing_from_number(11, self.name_)
+            self.ids.b2.text = db.get_thing_from_number(12, self.name_)
+            self.ids.b3.text = db.get_thing_from_number(13, self.name_)
+            self.ids.b4.text = db.get_thing_from_number(14, self.name_)
+            self.ids.b5.text = db.get_thing_from_number(15, self.name_)
             with open('files/page_number.txt', 'w+') as file2:
                 file2.truncate(0)
                 file2.write(str(3))
@@ -134,38 +135,38 @@ class Page(Screen):
             self.page_number = file.read()
 
         with open('files/box.txt', 'r+') as file2:
-            self.name = file2.read()
+            self.name_ = file2.read()
 
         if self.page_number == '1':
             db = DataBase()
-            if db.get_for_page(6, self.name) == True:
-                self.ids.b1.text = db.get_thing_from_number(6, self.name)
-                self.ids.b2.text = db.get_thing_from_number(7, self.name)
-                self.ids.b3.text = db.get_thing_from_number(8, self.name)
-                self.ids.b4.text = db.get_thing_from_number(9, self.name)
-                self.ids.b5.text = db.get_thing_from_number(10, self.name)
+            if db.get_for_page(6, self.name_) == True:
+                self.ids.b1.text = db.get_thing_from_number(6, self.name_)
+                self.ids.b2.text = db.get_thing_from_number(7, self.name_)
+                self.ids.b3.text = db.get_thing_from_number(8, self.name_)
+                self.ids.b4.text = db.get_thing_from_number(9, self.name_)
+                self.ids.b5.text = db.get_thing_from_number(10, self.name_)
                 with open('files/page_number.txt', 'w+') as file2:
                     file2.truncate(0)
                     file2.write(str(2))
         if self.page_number == '2':
             db = DataBase()
-            if db.get_for_page(11, self.name) == True:
-                self.ids.b1.text = db.get_thing_from_number(11, self.name)
-                self.ids.b2.text = db.get_thing_from_number(12, self.name)
-                self.ids.b3.text = db.get_thing_from_number(13, self.name)
-                self.ids.b4.text = db.get_thing_from_number(14, self.name)
-                self.ids.b5.text = db.get_thing_from_number(15, self.name)
+            if db.get_for_page(11, self.name_) == True:
+                self.ids.b1.text = db.get_thing_from_number(11, self.name_)
+                self.ids.b2.text = db.get_thing_from_number(12, self.name_)
+                self.ids.b3.text = db.get_thing_from_number(13, self.name_)
+                self.ids.b4.text = db.get_thing_from_number(14, self.name_)
+                self.ids.b5.text = db.get_thing_from_number(15, self.name_)
                 with open('files/page_number.txt', 'w+') as file2:
                     file2.truncate(0)
                     file2.write(str(3))
         if self.page_number == '3':
             db = DataBase()
-            if db.get_for_page(16, self.name) == True:
-                self.ids.b1.text = db.get_thing_from_number(16, self.name)
-                self.ids.b2.text = db.get_thing_from_number(17, self.name)
-                self.ids.b3.text = db.get_thing_from_number(18, self.name)
-                self.ids.b4.text = db.get_thing_from_number(19, self.name)
-                self.ids.b5.text = db.get_thing_from_number(20, self.name)
+            if db.get_for_page(16, self.name_) == True:
+                self.ids.b1.text = db.get_thing_from_number(16, self.name_)
+                self.ids.b2.text = db.get_thing_from_number(17, self.name_)
+                self.ids.b3.text = db.get_thing_from_number(18, self.name_)
+                self.ids.b4.text = db.get_thing_from_number(19, self.name_)
+                self.ids.b5.text = db.get_thing_from_number(20, self.name_)
                 with open('files/page_number.txt', 'w+') as file2:
                     file2.truncate(0)
                     file2.write(str(4))
