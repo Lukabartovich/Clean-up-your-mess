@@ -45,11 +45,13 @@
             Button:
                 size_hint_x: 0.12
                 background_normal: 'files/boxes2.png'
+                on_press: root.boxes()
 
             Button:
-                id: mic
+                id: plus
                 size_hint_x: 0.12
                 background_normal: 'files/plus.png'
+                on_press: root.plus()
 
 <Result>:
     name: 'result'
@@ -85,6 +87,7 @@
                 size_hint_x: 0.4
                 text: ''
                 background_color: (0.24, 0.77, 0.95, 1)
+                on_press: root.objects(self.text)
 
             Label:
                 size_hint_x: 0.2
@@ -113,22 +116,27 @@
             id: b1
             text: ''
             background_color: (0.71, 0, 0.49, 1)
+            on_press: root.object(self.text, 2)
         Button:
             id: b2
             text: ''
             background_color: (0.71, 0, 0.49, 1)
+            on_press: root.object(self.text, 2)
         Button:
             id: b3
             text: ''
             background_color: (0.71, 0, 0.49, 1)
+            on_press: root.object(self.text, 2)
         Button:
             id: b4
             text: ''
             background_color: (0.71, 0, 0.49, 1)
+            on_press: root.object(self.text, 2)
         Button:
             id: b5
             text: ''
             background_color: (0.71, 0, 0.49, 1)
+            on_press: root.object(self.text, 2)
         GridLayout:
             cols: 3
 
@@ -150,19 +158,170 @@
                 size_hint_x: 0.1525
                 on_press: root.right()
 
+<Object>:
+    GridLayout:
+        cols: 1
+
+        spacing: 15
+        padding: 15
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.1
+
+            Label:
+                text: ''
+                size_hint_x: 0.9
+            Button:
+                text: 'back'
+                background_color: (0.71, 0, 0.49, 1)
+                size_hint_x: 0.1
+                on_press: root.back()
+
+        Label:
+            text: ''
+            size_hint_y: 0.1
+
+        Button:
+            id: obj_name
+            text: ''
+            background_color: (0.24, 0.77, 0.95, 1)
+            font_size: 50
+            size_hint_y: 0.6
+
+
+        GridLayout:
+            cols: 2
+
+            spacing: 10
+
+            size_hint_y: 0.2
+
+            Button:
+                text: 'remove'
+                background_color: (1, 0, 0, 1)
+                on_press: root.remove()
+            Button:
+                text: 'move'
+                on_press: root.move()
+
+<WhatNew>:
+    GridLayout:
+        cols: 1
+
+        spacing: 15
+        padding: 15
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.1
+
+            Label:
+                text: ''
+                size_hint_x: 0.9
+            Button:
+                text: 'back'
+                background_color: (0.71, 0, 0.49, 1)
+                size_hint_x: 0.1
+                on_press: root.back()
+
+        Label:
+            id: new_name
+            text: 'lol is name for new:'
+            font_size: 30
+            color: (0, 0, 0, 1)
+
+        Button:
+            text: 'box'
+            background_color: (0.71, 0, 0.49, 1)
+            on_press: root.box()
+
+        Button:
+            text: 'thing'
+            background_color: (0.71, 0, 0.49, 1)
+            on_press: root.thing()
+
+<Where>:
+    GridLayout:
+        cols: 1
+
+        spacing: 15
+        padding: 15
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.1
+
+            Label:
+                text: ''
+                size_hint_x: 0.9
+            Button:
+                text: 'back'
+                background_color: (0.71, 0, 0.49, 1)
+                size_hint_x: 0.1
+                on_press: root.back()
+
+        Label:
+            id: where_t
+            text: 'where to put '
+            font_size: 30
+            color: (0, 0, 0, 1)
+            size_hint_y: 0.8
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.1
+
+            TextInput:
+                id: t_i_w
+                size_hint_x: 0.9
+            Button:
+                text: 'put'
+                size_hint_x: 0.1
+                background_color: (0.24, 0.77, 0.95, 1)
+                on_press: root.put()
+
+<Error>:
+    GridLayout:
+        cols: 1
+
+        spacing: 15
+        padding: 15
+
+        Label:
+            text: 'This box is full :('
+            size_hint_y: 0.9
+            font_size: 30
+            color: (0, 0, 0, 1)
+        Button:
+            text: 'back'
+            size_hint_y: 0.1
+            background_color: (0.71, 0, 0.49, 1)
+            on_press: root.back()
+
+
 <Root>:
     Start:
         id: start
         name: 'start'
-
     Home:
         id: home
         name: 'home'
-
     Page:
         id: page
         name: 'page'
-
     Result:
         id: result
         name: 'result'
+    Object:
+        id: object
+        name: 'object'
+    WhatNew:
+        id: what_new
+        name: 'what_new'
+    Where:
+        id: where
+        name: 'where'
+    Error:
+        id: error
+        name: 'error'

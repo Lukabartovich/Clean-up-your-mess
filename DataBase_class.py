@@ -68,10 +68,13 @@ class DataBase:
             return number
 
     def update_new_data(self, data, name):
-        last_number = self.last_number(name)
-        string = f'UPDATE "Boxes" set "{last_number}" = "{data}" WHERE "name"= "{name}"'
-        self.connection.execute(string)
-        self.connection.commit()
+        last_number = int(self.last_number(name)) + 1
+        if last_number != 21:
+            string = f'UPDATE "Boxes" set "{last_number}" = "{data}" WHERE "name"= "{name}"'
+            self.connection.execute(string)
+            self.connection.commit()
+        else:
+            return False
 
     def new_box(self, name):
 
@@ -126,10 +129,11 @@ class DataBase:
             self.update_number(last, '', name)
 
 
-# db = DataBase()
+db = DataBase()
 # print(db.get_for_page(6, 'box3'))
 # print(db.last_number('box1'))
-# db.update_new_data('щетка', 'box1')
+# print(db.update_new_data('cheburek', 'box1'))
 # db.new_box('box4')
 # print(db.find_thing('ldkfgldkjhg'))
-# db.delete_thing('')
+# db.delete_thing('lol')
+# print(db.check_for_number('1', 'box1'))
